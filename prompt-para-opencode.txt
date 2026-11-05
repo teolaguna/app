@@ -1,0 +1,32 @@
+Estoy en la carpeta de un proyecto Expo llamado BitTrackRover (subcarpeta
+BitTrackRover/). Leé primero HANDOFF.md para contexto.
+
+Objetivo: compilar un APK de prueba para Android con EAS y darme el link de
+descarga. La app es un control remoto por Bluetooth (BLE) de un rover ESP32:
+pantalla de bienvenida + panel de control con órdenes ON / OFF / CALL.
+Sin login, sin base de datos, sin guardar datos.
+
+El proyecto ya está completo: App.js, app.json (permisos BLE) y eas.json
+(perfil preview con buildType apk). NO modifiques el código salvo que la
+compilación falle, y en ese caso explicame el error antes de cambiar nada.
+Tampoco toques bittrackrover.jsx (es solo referencia web).
+
+Pasos a ejecutar (un paso a la vez, en la carpeta BitTrackRover/):
+
+1. Verificá que estés logueado en Expo: npx eas-cli whoami
+   (si falla, avisame para que corra yo manualmente: npx eas-cli login)
+
+2. Inicializá el proyecto EAS: npx eas-cli init --non-interactive
+   (si falla por cuenta múltiple, probá: npx eas-cli init --account <mi-usuario> --non-interactive)
+
+3. Compilá el APK:
+   npx eas-cli build -p android --profile preview --non-interactive --wait
+   - La primera vez auto-genera el keystore solo, no pide nada.
+   - Tarda 15-25 minutos en la nube. Esperá con --wait.
+
+4. Al terminar, pasame el link de descarga del APK (formato
+   https://expo.dev/artifacts/eas/....apk) y el tamaño del artefacto.
+
+Reglas: respuestas en español, no borres ni sobrescribas nada sin pedirme
+permiso, esperá mi confirmación antes de cada cambio grande. Si un paso falla,
+mostrame el error exacto y proponé la solución antes de ejecutarla.
